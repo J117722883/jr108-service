@@ -3,7 +3,7 @@ info:
   title: JR-108 Options & Market-Implied Expectations API
   version: "1.0.0"
 servers:
-  - url: https://REPLACE_ME_WITH_YOUR_RENDER_URL
+  - url: https://jr108-service.onrender.com
 paths:
   /jr108/run:
     post:

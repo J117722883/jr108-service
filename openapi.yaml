@@ -1,0 +1,39 @@
+openapi: 3.1.0
+info:
+  title: JR-108 Options & Market-Implied Expectations API
+  version: "1.0.0"
+servers:
+  - url: https://REPLACE_ME_WITH_YOUR_RENDER_URL
+paths:
+  /jr108/run:
+    post:
+      operationId: jr108_run
+      summary: Run JR-108 using Alpaca data (server-side)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [run_id, ticker, as_of_date, catalysts]
+              properties:
+                run_id: { type: string }
+                ticker: { type: string }
+                as_of_date: { type: string }
+                catalysts:
+                  type: array
+                  items: { type: object }
+      responses:
+        "200":
+          description: JR-108 payload JSON
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
